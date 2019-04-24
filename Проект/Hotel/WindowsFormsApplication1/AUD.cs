@@ -23,12 +23,12 @@ namespace WindowsFormsApplication1
             qrPost = "SELECT id_post, Name_post as 'Имя постояльца',Surname_post as 'Фамилия постояльца', Otch_post as 'Отчество постояльца' ,Date_rodj as 'Дата рождения', " +
             "Seria_pasport as 'Серия паспорта', Num_pasport as 'Номер паспорта',Grajadanstvo as 'Гражданство' FROM Post",
             qrSoisk = "SELECT id_Soisk, Name_Soisk as 'Имя соискателя',Surname_Soisk as 'Фамилия соискателя', Otch_Soisk as 'Отчество соискателя' ,Opt_rab as 'Опыт работы' ," +
-            "Tel_soisk as 'Телефон' FROM Soisk",
+            "Tel_soisk as 'Телефон',prof_id as 'Код профессии' FROM Soisk",
             qrChek = "SELECT id_chek, Num_chek as 'Номер чека',sotr_id as 'Код сотрудника' FROM Chek",
-            qrProfession = "SELECT id_prof, Name_prof as 'Название профессии',zarplata as 'Зарплата' FROM Profession",
+            qrProfession = "SELECT id_prof, Name_prof as 'Название профессии',zarplata_prof as 'Зарплата' FROM Profession",
             qrBron = "SELECT id_bron, date_priezda as 'Дата приезда',date_otezda as 'Дата отъезда',room_id as 'Код комнаты',post_id as 'Код постояльца' FROM Bron",
             qrRole = "Select id_role, Name_role as 'Название роли',Hotel as 'Отель', Room as 'Комната',  Bron as 'Бронирование',  Sotr as 'Сотрудник',Soisk as 'Соискатель'," +
-            "Post as 'Постоялец', Chek as 'Чек',Profession as 'Профессия', Uborka as 'Уборка' from Role";
+            "Post as 'Постоялец', Chek as 'Чек',Prof as 'Профессия', Uborka as 'Уборка' from Role";
 
 
 

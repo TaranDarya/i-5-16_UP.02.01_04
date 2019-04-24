@@ -37,8 +37,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.id_room = new System.Windows.Forms.ComboBox();
-            this.date_zaezda = new System.Windows.Forms.MaskedTextBox();
-            this.date_otezda = new System.Windows.Forms.MaskedTextBox();
+            this.date_zaezda = new System.Windows.Forms.DateTimePicker();
+            this.date_otezda = new System.Windows.Forms.DateTimePicker();
+            this.Zabron = new System.Windows.Forms.Button();
+            this.Отель = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_zaezda_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.data_otezda_col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,10 +50,14 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(33, 86);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Отель,
+            this.date_zaezda_col,
+            this.data_otezda_col});
+            this.dataGridView1.Location = new System.Drawing.Point(41, 86);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 241);
+            this.dataGridView1.Size = new System.Drawing.Size(435, 241);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -64,17 +72,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(553, 415);
+            this.button1.Location = new System.Drawing.Point(698, 475);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(90, 33);
             this.button1.TabIndex = 2;
             this.button1.Text = "Назад";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(527, 66);
+            this.label2.Location = new System.Drawing.Point(512, 212);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 17);
             this.label2.TabIndex = 4;
@@ -83,7 +92,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(527, 132);
+            this.label3.Location = new System.Drawing.Point(512, 278);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 17);
             this.label3.TabIndex = 6;
@@ -91,62 +100,86 @@
             // 
             // id_hotel
             // 
+            this.id_hotel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.id_hotel.FormattingEnabled = true;
-            this.id_hotel.Location = new System.Drawing.Point(528, 226);
+            this.id_hotel.Location = new System.Drawing.Point(515, 106);
             this.id_hotel.Name = "id_hotel";
-            this.id_hotel.Size = new System.Drawing.Size(121, 24);
+            this.id_hotel.Size = new System.Drawing.Size(199, 24);
             this.id_hotel.TabIndex = 7;
+            this.id_hotel.SelectedIndexChanged += new System.EventHandler(this.id_hotel_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(525, 270);
+            this.label4.Location = new System.Drawing.Point(514, 145);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 17);
+            this.label4.Size = new System.Drawing.Size(65, 17);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Код комнаты";
+            this.label4.Text = "Комната";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(527, 197);
+            this.label5.Location = new System.Drawing.Point(516, 86);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 17);
+            this.label5.Size = new System.Drawing.Size(49, 17);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Код отеля";
+            this.label5.Text = "Отель";
             // 
             // id_room
             // 
+            this.id_room.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.id_room.FormattingEnabled = true;
-            this.id_room.Location = new System.Drawing.Point(530, 303);
+            this.id_room.Location = new System.Drawing.Point(515, 165);
             this.id_room.Name = "id_room";
             this.id_room.Size = new System.Drawing.Size(119, 24);
             this.id_room.TabIndex = 10;
             // 
             // date_zaezda
             // 
-            this.date_zaezda.Location = new System.Drawing.Point(528, 86);
-            this.date_zaezda.Mask = "00/00/0000";
+            this.date_zaezda.Location = new System.Drawing.Point(513, 244);
             this.date_zaezda.Name = "date_zaezda";
-            this.date_zaezda.Size = new System.Drawing.Size(121, 22);
-            this.date_zaezda.TabIndex = 11;
-            this.date_zaezda.ValidatingType = typeof(System.DateTime);
+            this.date_zaezda.Size = new System.Drawing.Size(174, 22);
+            this.date_zaezda.TabIndex = 13;
             // 
             // date_otezda
             // 
-            this.date_otezda.Location = new System.Drawing.Point(528, 152);
-            this.date_otezda.Mask = "00/00/0000";
+            this.date_otezda.Location = new System.Drawing.Point(515, 307);
             this.date_otezda.Name = "date_otezda";
-            this.date_otezda.Size = new System.Drawing.Size(121, 22);
-            this.date_otezda.TabIndex = 12;
-            this.date_otezda.ValidatingType = typeof(System.DateTime);
+            this.date_otezda.Size = new System.Drawing.Size(174, 22);
+            this.date_otezda.TabIndex = 14;
+            // 
+            // Zabron
+            // 
+            this.Zabron.Location = new System.Drawing.Point(515, 363);
+            this.Zabron.Name = "Zabron";
+            this.Zabron.Size = new System.Drawing.Size(172, 45);
+            this.Zabron.TabIndex = 15;
+            this.Zabron.Text = "Забронировать";
+            this.Zabron.UseVisualStyleBackColor = true;
+            // 
+            // Отель
+            // 
+            this.Отель.HeaderText = "Отель";
+            this.Отель.Name = "Отель";
+            // 
+            // date_zaezda_col
+            // 
+            this.date_zaezda_col.HeaderText = "Дата заезда";
+            this.date_zaezda_col.Name = "date_zaezda_col";
+            // 
+            // data_otezda_col
+            // 
+            this.data_otezda_col.HeaderText = "Дата отъезда";
+            this.data_otezda_col.Name = "data_otezda_col";
             // 
             // Bron_room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 520);
+            this.Controls.Add(this.Zabron);
             this.Controls.Add(this.date_otezda);
             this.Controls.Add(this.date_zaezda);
             this.Controls.Add(this.id_room);
@@ -159,7 +192,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Bron_room";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bron_room";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Bron_room_FormClosing);
+            this.Load += new System.EventHandler(this.Bron_room_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,7 +213,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox id_room;
-        private System.Windows.Forms.MaskedTextBox date_zaezda;
-        private System.Windows.Forms.MaskedTextBox date_otezda;
+        private System.Windows.Forms.DateTimePicker date_zaezda;
+        private System.Windows.Forms.DateTimePicker date_otezda;
+        private System.Windows.Forms.Button Zabron;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Отель;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_zaezda_col;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data_otezda_col;
     }
 }

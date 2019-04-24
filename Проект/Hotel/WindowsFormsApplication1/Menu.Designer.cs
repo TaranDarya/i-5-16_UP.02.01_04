@@ -96,6 +96,7 @@
             this.button2.TabIndex = 9;
             this.button2.Text = "Бронирование номера";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -228,6 +229,7 @@
             this.button8.TabIndex = 38;
             this.button8.Text = "Добавить";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // panel2
             // 
@@ -251,7 +253,6 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Бронирование",
-            "Комната",
             "Отель",
             "Соискатель",
             "Сотрудник",
@@ -276,12 +277,13 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(999, 540);
+            this.button9.Location = new System.Drawing.Point(982, 525);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(103, 39);
             this.button9.TabIndex = 46;
             this.button9.Text = "Назад";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // Menu
             // 
@@ -289,8 +291,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1114, 591);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(1);
@@ -298,6 +300,7 @@
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.Load += new System.EventHandler(this.Menu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

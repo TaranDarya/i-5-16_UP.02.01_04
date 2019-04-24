@@ -13,7 +13,8 @@ namespace WindowsFormsApplication1
 {
     public partial class Menu : Form
     {
-        object[] textcomboboxes = new object[7];
+        object[] textcomboboxes = new object[9];
+        Label[] labels = new Label[9];
 
         public Menu()
         {
@@ -56,10 +57,23 @@ namespace WindowsFormsApplication1
             
         }
 
+        private void ClearPanel()
+        {
+            dataGridView1.DataSource = "";
+            for (int i = 0; i < 7; i++)
+            {
+                panel2.Controls.Remove(labels[i]);
+                //if ((textcomboboxes[i] as MaskedTextBox) != null)
+                panel2.Controls.Remove(textcomboboxes[i] as MaskedTextBox);
+                //if ((textcomboboxes[i] as ComboBox) != null)
+                    panel2.Controls.Remove(textcomboboxes[i] as ComboBox);
+            }
+        }
 
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) // Выбор таблицы для отображения
         {
+            ClearPanel();
             switch (comboBox1.SelectedItem)
             {
                 case "Отель":
@@ -70,6 +84,7 @@ namespace WindowsFormsApplication1
                         label.Location = new Point(500, 38 + 40 * i);
                         label.Text = dataGridView1.Columns[i + 1].HeaderText;
                         label.Visible = true;
+                        labels[i] = label;
                         panel2.Controls.Add(label);
 
                         MaskedTextBox textbox = new MaskedTextBox();
@@ -89,9 +104,10 @@ namespace WindowsFormsApplication1
                         label.Location = new Point(500, 38 + 40 * i);
                         label.Text = dataGridView1.Columns[i + 1].HeaderText;
                         label.Visible = true;
+                        labels[i] = label;
                         panel2.Controls.Add(label);
 
-                        if (i==0 || i==1)
+                        if (i == 0 || i == 1)
                         {
                             MaskedTextBox textbox = new MaskedTextBox();
                             textbox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
@@ -105,6 +121,7 @@ namespace WindowsFormsApplication1
                             ComboBox comBox = new ComboBox();
                             comBox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
                             comBox.Visible = true;
+                            comBox.DropDownStyle = ComboBoxStyle.DropDownList;
                             panel2.Controls.Add(comBox);
                             textcomboboxes[i] = comBox;
 
@@ -114,15 +131,21 @@ namespace WindowsFormsApplication1
                     break;
                 case "Постоялец":
                     DataGridLoaded(AUD.qrPost);
-                    for (int i = 0; i < 7; i++)
+                    for (int i = 0; i < 6; i++)
                     {
                         Label label = new Label();
                         label.Location = new Point(500, 38 + 40 * i);
                         label.Text = dataGridView1.Columns[i + 1].HeaderText;
                         label.Visible = true;
+                        labels[i] = label;
                         panel2.Controls.Add(label);
 
-                     
+                        MaskedTextBox textbox = new MaskedTextBox();
+                        textbox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
+                        textbox.Mask = "";
+                        textbox.Visible = true;
+                        panel2.Controls.Add(textbox);
+                        textcomboboxes[i] = textbox;
                     }
 
                     break;
@@ -134,6 +157,7 @@ namespace WindowsFormsApplication1
                         label.Location = new Point(500, 38 + 40 * i);
                         label.Text = dataGridView1.Columns[i + 1].HeaderText;
                         label.Visible = true;
+                        labels[i] = label;
                         panel2.Controls.Add(label);
 
                         if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4 || i == 5)
@@ -150,6 +174,7 @@ namespace WindowsFormsApplication1
                             ComboBox comBox = new ComboBox();
                             comBox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
                             comBox.Visible = true;
+                            comBox.DropDownStyle = ComboBoxStyle.DropDownList;
                             panel2.Controls.Add(comBox);
                             textcomboboxes[i] = comBox;
 
@@ -159,12 +184,42 @@ namespace WindowsFormsApplication1
                     break;
                 case "Соискатель":
                     DataGridLoaded(AUD.qrSoisk);
+                    for (int i = 0; i < 6; i++)
+                    {
+                        Label label = new Label();
+                        label.Location = new Point(500, 38 + 40 * i);
+                        label.Text = dataGridView1.Columns[i + 1].HeaderText;
+                        label.Visible = true;
+                        labels[i] = label;
+                        panel2.Controls.Add(label);
+
+                        if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4)
+                        {
+                            MaskedTextBox textbox = new MaskedTextBox();
+                            textbox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
+                            textbox.Mask = "";
+                            textbox.Visible = true;
+                            panel2.Controls.Add(textbox);
+                            textcomboboxes[i] = textbox;
+                        }
+                        else
+                        {
+                            ComboBox comBox = new ComboBox();
+                            comBox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
+                            comBox.Visible = true;
+                            comBox.DropDownStyle = ComboBoxStyle.DropDownList;
+                            panel2.Controls.Add(comBox);
+                            textcomboboxes[i] = comBox;
+
+                        }
+                    }
 
                     break;
-                case "Комната":
-                    DataGridLoaded(AUD.qrRoom);
+                //case "Комната":
+                    //DataGridLoaded(AUD.qrRoom);
 
-                    break;
+                   // break;
+
                 case "Уборка":
                     DataGridLoaded(AUD.qrUborka);
                     for (int i = 0; i < 3; i++)
@@ -173,9 +228,10 @@ namespace WindowsFormsApplication1
                         label.Location = new Point(500, 38 + 40 * i);
                         label.Text = dataGridView1.Columns[i + 1].HeaderText;
                         label.Visible = true;
+                        labels[i] = label;
                         panel2.Controls.Add(label);
 
-                        if (i==0)
+                        if (i == 0)
                         {
                             MaskedTextBox textbox = new MaskedTextBox();
                             textbox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
@@ -189,6 +245,7 @@ namespace WindowsFormsApplication1
                             ComboBox Combox = new ComboBox();
                             Combox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
                             Combox.Visible = true;
+                            Combox.DropDownStyle = ComboBoxStyle.DropDownList;
                             panel2.Controls.Add(Combox);
                             textcomboboxes[i] = Combox;
                         }
@@ -196,27 +253,72 @@ namespace WindowsFormsApplication1
                     break;
                 case "Роли":
                     DataGridLoaded(AUD.qrRole);
-           //         "Select id_role, Name_role as 'Название роли',Hotel as 'Отель', Room as 'Комната',  Bron as 'Бронирование',  Sotr as 'Сотрудник',Soisk as 'Соискатель'" +
-           //"Post as 'Постоялец', Chek as 'Чек',Profession as 'Профессия', Uborka as 'Уборка', from Role";
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < 9; i++)
                     {
                         Label label = new Label();
                         label.Location = new Point(500, 38 + 40 * i);
                         label.Text = dataGridView1.Columns[i + 1].HeaderText;
                         label.Visible = true;
+                        labels[i] = label;
                         panel2.Controls.Add(label);
-                            ComboBox Combox = new ComboBox();
-                            Combox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
-                            Combox.Visible = true;
-                            panel2.Controls.Add(Combox);
-                            textcomboboxes[i] = Combox;
-                    }
-                        break;
-                case "Профессия":
-                    DataGridLoaded(AUD.qrProfession);
 
+                        ComboBox Combox = new ComboBox();
+                        Combox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
+                        Combox.Visible = true;
+                        Combox.DropDownStyle = ComboBoxStyle.DropDownList;
+                        panel2.Controls.Add(Combox);
+                        textcomboboxes[i] = Combox;
+                    }
+                    break;
+                case "Профессии":
+                    DataGridLoaded(AUD.qrProfession);
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Label label = new Label();
+                        label.Location = new Point(500, 38 + 40 * i);
+                        label.Text = dataGridView1.Columns[i + 1].HeaderText;
+                        label.Visible = true;
+                        labels[i] = label;
+                        panel2.Controls.Add(label);
+
+
+
+                        MaskedTextBox textbox = new MaskedTextBox();
+                        textbox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
+                        textbox.Mask = "";
+                        textbox.Visible = true;
+                        panel2.Controls.Add(textbox);
+                        textcomboboxes[i] = textbox;
+                    }
                     break;
             }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel1.Enabled = true;
+            panel2.Visible = false;
+            panel2.Enabled = false;
+            ClearPanel();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Bron_room br_room = new Bron_room();
+            br_room.Show();
+
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
