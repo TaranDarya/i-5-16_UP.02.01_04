@@ -14,6 +14,24 @@ namespace WindowsFormsApplication1
         public static SqlConnection sql = new SqlConnection("Data Source = LAPTOP-FACC1SJ2\\MYSQLLOL; Initial Catalog =Pr_Hotel;" +
 "Persist Security Info = true; User ID = sa; Password = \"9815\""); //строка подключения
 
+        public static string // вывод данных из БД
+            qrHotel = "SELECT id_hotel, name_hotel as 'Название отеля', mesto_hotel as 'Место отеля', stars_hotel as 'Звезды отеля' FROM Hotel",
+            qrRoom = "SELECT id_room, Num_room as 'Номер комнаты',price_room as 'Цена', hotel_id as 'Код отеля' FROM Room",
+            qrUborka = "SELECT id_uborka, time_uborka as 'Время уборки',sotr_id as 'Код сотрудника', room_id as 'Код комнаты' FROM Uborka",
+            qrSotr = "SELECT id_sotr, Name_sotr as 'Имя сотрудника',Surname_sotr as 'Фамилия сотрудника', Otch_sotr as 'Отчество сотрудника' ,Tel_sotr as 'Телефон сотрудника'" +
+            "Seria_pasp_sotr as 'Серия паспотра', Num_pasp_sotr as 'Номер паспорта', prof_id as 'Код профессии' FROM Sotr",
+            qrPost = "SELECT id_post, Name_post as 'Имя постояльца',Surname_post as 'Фамилия постояльца', Otch_post as 'Отчество постояльца' ,Date_rodj as 'Дата рождения'" +
+            "Seria_pasport as 'Серия паспорта', Num_pasport as 'Номер паспорта',Grajadanstvo as 'Гражданство', FROM Post",
+            qrSoisk = "SELECT id_Soisk, Name_Soisk as 'Имя соискателя',Surname_Soisk as 'Фамилия соискателя', Otch_Soisk as 'Отчество соискателя' ,Opt_rab as 'Опыт работы'" +
+            "Tel_soisk as 'Телефон', FROM Soisk",
+            qrChek = "SELECT id_chek, Num_chek as 'Номер чека',sotr_id as 'Код сотрудника', FROM Chek",
+            qrProfession = "SELECT id_prof, Name_prof as 'Название профессии',zarplata as 'Зарплата', FROM Profession",
+            qrBron = "SELECT id_bron, data_priezda as 'Дата приезда',data_otezda as 'Дата отъезда',room_id as 'Код комнаты',post_id as 'Код постояльца',FROM Bron",
+            qrRole = "Select id_role, Name_role as 'Название роли',Hotel as 'Отель', Room as 'Комната',  Bron as 'Бронирование',  Sotr as 'Сотрудник',Soisk as 'Соискатель'" +
+            "Post as 'Постоялец', Chek as 'Чек',Profession as 'Профессия', Uborka as 'Уборка', from Role";
+
+
+
         public static SqlCommand cmd = new SqlCommand(string.Empty, sql);
 
         private static void spConfiguration(string spName)
@@ -200,7 +218,7 @@ namespace WindowsFormsApplication1
         public static void post_Update(Int32 id_post, string Name_post, string Surname_post, string Otch_post, string Date_rodj,
                 string Seria_pasport, string Num_pasport, string Grajadanstvo)
         {
-            spConfiguration("Upd_client");
+            spConfiguration("Upd_post");
             try
             {
                 cmd.Parameters.Clear();
