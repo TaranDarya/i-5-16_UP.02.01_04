@@ -118,12 +118,51 @@ namespace WindowsFormsApplication1
                     break;
                 case "Уборка":
                     DataGridLoaded(AUD.qrUborka);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Label label = new Label();
+                        label.Location = new Point(500, 38 + 40 * i);
+                        label.Text = dataGridView1.Columns[i + 1].HeaderText;
+                        label.Visible = true;
+                        panel2.Controls.Add(label);
 
+                        if (i==0)
+                        {
+                            MaskedTextBox textbox = new MaskedTextBox();
+                            textbox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
+                            textbox.Mask = "";
+                            textbox.Visible = true;
+                            panel2.Controls.Add(textbox);
+                            textcomboboxes[i] = textbox;
+                        }
+                        else
+                        {
+                            ComboBox Combox = new ComboBox();
+                            Combox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
+                            Combox.Visible = true;
+                            panel2.Controls.Add(Combox);
+                            textcomboboxes[i] = Combox;
+                        }
+                    }
                     break;
                 case "Роли":
                     DataGridLoaded(AUD.qrRole);
-
-                    break;
+           //         "Select id_role, Name_role as 'Название роли',Hotel as 'Отель', Room as 'Комната',  Bron as 'Бронирование',  Sotr as 'Сотрудник',Soisk as 'Соискатель'" +
+           //"Post as 'Постоялец', Chek as 'Чек',Profession as 'Профессия', Uborka as 'Уборка', from Role";
+                    for (int i = 0; i < 10; i++)
+                    {
+                        Label label = new Label();
+                        label.Location = new Point(500, 38 + 40 * i);
+                        label.Text = dataGridView1.Columns[i + 1].HeaderText;
+                        label.Visible = true;
+                        panel2.Controls.Add(label);
+                            ComboBox Combox = new ComboBox();
+                            Combox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
+                            Combox.Visible = true;
+                            panel2.Controls.Add(Combox);
+                            textcomboboxes[i] = Combox;
+                    }
+                        break;
                 case "Профессия":
                     DataGridLoaded(AUD.qrProfession);
 

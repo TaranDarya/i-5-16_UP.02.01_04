@@ -28,7 +28,7 @@ namespace WindowsFormsApplication1
             qrProfession = "SELECT id_prof, Name_prof as 'Название профессии',zarplata as 'Зарплата', FROM Profession",
             qrBron = "SELECT id_bron, data_priezda as 'Дата приезда',data_otezda as 'Дата отъезда',room_id as 'Код комнаты',post_id as 'Код постояльца',FROM Bron",
             qrRole = "Select id_role, Name_role as 'Название роли',Hotel as 'Отель', Room as 'Комната',  Bron as 'Бронирование',  Sotr as 'Сотрудник',Soisk as 'Соискатель'" +
-            "Post as 'Постоялец', Chek as 'Чек',Profession as 'Профессия', Uborka as 'Уборка', from Role";
+            "Post as 'Постоялец', Chek as 'Чек',Profession as 'Профессия', Uborka as 'Уборка' from Role";
 
 
 
