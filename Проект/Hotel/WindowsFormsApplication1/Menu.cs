@@ -83,7 +83,7 @@ namespace WindowsFormsApplication1
 
                 case "Бронирование":
                     DataGridLoaded(AUD.qrBron);
-                    for (int i = 0; i < ; i++)
+                    for (int i = 0; i < 4; i++)
                     {
                         Label label = new Label();
                         label.Location = new Point(500, 38 + 40 * i);
@@ -91,17 +91,38 @@ namespace WindowsFormsApplication1
                         label.Visible = true;
                         panel2.Controls.Add(label);
 
-                        MaskedTextBox textbox = new MaskedTextBox();
-                        textbox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
-                        textbox.Mask = "";
-                        textbox.Visible = true;
-                        panel2.Controls.Add(textbox);
-                        textcomboboxes[i] = textbox;
+                        if (i==0 || i==1)
+                        {
+                            MaskedTextBox textbox = new MaskedTextBox();
+                            textbox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
+                            textbox.Mask = "";
+                            textbox.Visible = true;
+                            panel2.Controls.Add(textbox);
+                            textcomboboxes[i] = textbox;
+                        }
+                        else
+                        {
+                            ComboBox comBox = new ComboBox();
+                            comBox.Location = new Point(500 + label.Width + 20, 38 + 40 * i);
+                            comBox.Visible = true;
+                            panel2.Controls.Add(comBox);
+                            textcomboboxes[i] = comBox;
+                        }
                     }
 
                     break;
                 case "Постоялец":
                     DataGridLoaded(AUD.qrPost);
+                    for (int i = 0; i < 7; i++)
+                    {
+                        Label label = new Label();
+                        label.Location = new Point(500, 38 + 40 * i);
+                        label.Text = dataGridView1.Columns[i + 1].HeaderText;
+                        label.Visible = true;
+                        panel2.Controls.Add(label);
+
+                     
+                    }
 
                     break;
                 case "Сотрудник":
