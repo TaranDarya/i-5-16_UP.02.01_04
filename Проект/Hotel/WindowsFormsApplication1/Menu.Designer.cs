@@ -49,6 +49,8 @@
             this.button8 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -182,13 +184,13 @@
             // оПрограммеToolStripMenuItem1
             // 
             this.оПрограммеToolStripMenuItem1.Name = "оПрограммеToolStripMenuItem1";
-            this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(216, 32);
+            this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(214, 32);
             this.оПрограммеToolStripMenuItem1.Text = "О программе";
             // 
             // обАвтореToolStripMenuItem1
             // 
             this.обАвтореToolStripMenuItem1.Name = "обАвтореToolStripMenuItem1";
-            this.обАвтореToolStripMenuItem1.Size = new System.Drawing.Size(216, 32);
+            this.обАвтореToolStripMenuItem1.Size = new System.Drawing.Size(214, 32);
             this.обАвтореToolStripMenuItem1.Text = "Об авторе";
             // 
             // dataGridView1
@@ -229,6 +231,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button9);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.button7);
@@ -255,11 +259,29 @@
             "Роли",
             "Уборка",
             "Профессии"});
-            this.comboBox1.Location = new System.Drawing.Point(468, 511);
+            this.comboBox1.Location = new System.Drawing.Point(467, 540);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(149, 24);
             this.comboBox1.TabIndex = 44;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(490, 506);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 17);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Выбор таблицы";
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(999, 540);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(103, 39);
+            this.button9.TabIndex = 46;
+            this.button9.Text = "Назад";
+            this.button9.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 
@@ -283,6 +305,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -308,6 +331,8 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label2;
     }
 }
 
